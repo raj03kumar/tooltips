@@ -1,0 +1,225 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 160vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 15em 2.5em 2.5em 2.5em;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tooltip, .quick-tooltip{
+    position: relative;
+    text-align: center;
+    padding: 2em;
+}
+
+.tooltip-activator{
+    font-size: 2.5em;
+    color: #1f46e2;
+    cursor: pointer;
+}
+
+.tooltip-popup{
+    width: 18em;
+    position: absolute;
+    top: 7em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 2em;
+    text-align: left;
+    border-radius: 1em;
+    box-shadow: 0 0 3em rgba(0, 0, 0, 0.1);
+    z-index: 3;
+}
+
+.tooltip h1{
+    margin: 0 0 0.5em 0;
+}
+
+.tooltip a{
+    display: block;
+    margin: 0.5em 0;
+    text-decoration: none;
+    color: #2f78ff;
+}
+
+.tooltip a:hover{
+    text-decoration: underline;
+}
+
+.tooltip ul{
+    list-style: none;
+    margin: 2em 0;
+    font-size: 0.9em;
+}
+
+.tooltip li{
+    margin: 0.7em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tooltip li span:nth-child(2){
+    font-weight: bold;
+}
+
+.tooltip h3{
+    margin: 1em 0;
+}
+
+.address-info p{
+    font-size: 0.9em;
+    margin: 0.5em 0;
+}
+
+.tooltip button{
+    display: block;
+    padding: 0.7em 2em;
+    background: #2f78ff;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 2em auto 0em auto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tooltip button:hover{
+    background: #1e41ce;
+}
+
+.tooltip-popup::before{
+    content: '';
+    position: absolute;
+    top: -1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid #fff;
+}
+
+.quick-tooltip-popup{
+    width: 18em;
+    position: absolute;
+    text-align: left;
+    background: #3e3b49;
+    padding: 1.5em;
+    color: #fff;
+    border-radius: 8px;
+    z-index: 3;
+}
+
+.quick-tooltip p{
+    margin-top: 1em;
+    font-size: 0.9em;
+    line-height: 25px;
+    max-width: 350px;
+}
+
+.quick-tooltip-popup::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.quick-tooltip .top{
+    top: 7em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.quick-tooltip .top::before{
+    top: -1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid #3e3b49;
+}
+
+.quick-tooltip .bottom{
+    bottom: 7em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.quick-tooltip .bottom::before{
+    bottom: -1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid #3e3b49;
+}
+
+.quick-tooltip .left{
+    left: 7em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.quick-tooltip .left::before{
+    left: -1.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-right: 25px solid #3e3b49;
+}
+
+.quick-tooltip .right{
+    right: 7em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.quick-tooltip .right::before{
+    right: -1.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-left: 25px solid #3e3b49;
+}
+
+.tooltip-popup, .quick-tooltip-popup{
+    opacity: 0;
+    display: none;
+}
+
+.tooltip:hover .tooltip-popup,
+.quick-tooltip:hover .quick-tooltip-popup{
+    animation: fadeIn 0.3s linear forwards;
+    opacity: 1;
+    display: block;
+}
+
+@keyframes fadeIn {
+    0%{
+        display: none;
+        opacity: 0;
+    }
+    10%{
+        display: block;
+        opacity: none;
+    }
+    100%{
+        opacity: 1;
+    }
+}
